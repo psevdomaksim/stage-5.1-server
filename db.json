@@ -1,0 +1,193 @@
+{
+  "cards": [
+    {
+      "id": "0",
+      "header": "Spring boot",
+      "description": "Many desktop publishing packages and web page editors now useLorem Ipsum as their default model text, and a search for 'lorem ipsum'.",
+      "src": "spring-boot.png"
+    },
+    {
+      "id": "1",
+      "header": "Spring framework",
+      "description": "Many desktop publishing packages and web page editors now useLorem Ipsum as their default model text, and a search for 'lorem ipsum'.",
+      "src": "spring-framework.png"
+    },
+    {
+      "id": "2",
+      "header": "Spring cloud",
+      "description": "Many desktop publishing packages and web page editors now useLorem Ipsum as their default model text, and a search for 'lorem ipsum'.",
+      "src": "spring-data.png"
+    },
+    {
+      "id": "3",
+      "header": "Spring cloud data flow",
+      "description": "Many desktop publishing packages and web page editors now useLorem Ipsum as their default model text, and a search for 'lorem ipsum'.",
+      "src": "spring-cloud.png"
+    },
+    {
+      "id": "4",
+      "header": "Spring data",
+      "description": "Many desktop publishing packages and web page editors now useLorem Ipsum as their default model text, and a search for 'lorem ipsum'.",
+      "src": "spring-data-flow.png"
+    },
+    {
+      "id": "5",
+      "header": "Spring security",
+      "description": "Many desktop publishing packages and web page editors now useLorem Ipsum as their default model text, and a search for 'lorem ipsum'.",
+      "src": "spring-security.png"
+    }
+  ],
+  "navbarItems": [
+    {
+      "id": "1",
+      "header": "Why Spring",
+      "dropdownItems": [
+        {
+          "header": "Microservices",
+          "href": ""
+        },
+        {
+          "header": "Reactive",
+          "href": ""
+        },
+        {
+          "header": "Event Driven",
+          "href": ""
+        },
+        {
+          "header": "Cloud",
+          "href": ""
+        },
+        {
+          "header": "Web Applications",
+          "href": ""
+        },
+        {
+          "header": "Serverless",
+          "href": ""
+        },
+        {
+          "header": "Batch",
+          "href": ""
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "header": "Learn",
+      "dropdownItems": [
+        {
+          "header": "Overview",
+          "href": ""
+        },
+        {
+          "header": "Quickstart",
+          "href": ""
+        },
+        {
+          "header": "Guides",
+          "href": ""
+        },
+        {
+          "header": "Blog",
+          "href": ""
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "header": "Projects",
+      "dropdownItems": [
+        {
+          "header": "Overview",
+          "href": ""
+        },
+        {
+          "header": "Spring boot",
+          "href": ""
+        },
+        {
+          "header": "Spring framework",
+          "href": ""
+        },
+        {
+          "header": "Spring cloud data flow",
+          "href": ""
+        },
+        {
+          "header": "Spring data",
+          "href": ""
+        },
+        {
+          "header": "Spring security",
+          "href": ""
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "header": "Academy",
+      "dropdownItems": [
+        {
+          "header": "Courses",
+          "href": ""
+        },
+        {
+          "header": "Get Certified",
+          "href": ""
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "header": "Solutions",
+      "dropdownItems": [
+        {
+          "header": "Overview",
+          "href": ""
+        },
+        {
+          "header": "Tanzu Spring",
+          "href": ""
+        },
+        {
+          "header": "Spring Consulting",
+          "href": ""
+        },
+        {
+          "header": "Spring Academy For Teams",
+          "href": ""
+        },
+        {
+          "header": "Security Advisories",
+          "href": ""
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "header": "Community",
+      "dropdownItems": [
+        {
+          "header": "Overview",
+          "href": ""
+        },
+        {
+          "header": "Events",
+          "href": ""
+        },
+        {
+          "header": "Authors",
+          "href": ""
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "1234"
+    }
+  ]
+}
