@@ -68,6 +68,10 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use("/", (req,res)=>{
+  res.send("server is running.");
+})
+
 // Start the server only if this file is executed directly
 if (require.main === module) {
   app.listen(PORT, () => {
