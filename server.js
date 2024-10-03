@@ -1,12 +1,16 @@
+require("dotenv").config();
 const cors = require("cors");
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const router = require("./routes/index");
+const sequelize = require("./db");
 
 const PORT = 5000;
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cookieParser());
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use("/api", router);
 
 //Avoid CORS issue
@@ -16,6 +20,7 @@ app.use(function (req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
+  res.header("Access-Control-Allow-Credentials", "true");
   next();
 });
 
@@ -23,11 +28,18 @@ app.use("/", (req, res) => {
   res.send("server is running.");
 });
 
-// Start the server only if this file is executed directly
-if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(`JSON Server is running on port ` + PORT);
-  });
-}
+const start = async () => {
+  try {
+    await sequelize.authenticate();
+    await sequelize.sync();
+    app.listen(process.env.PORT, () =>
+      console.log(`server started listening on ${process.env.PORT}`)
+    );
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+start();
 
 module.exports = { app };

@@ -1,30 +1,37 @@
-const fs = require("fs");
+const { Card } = require("../models/models");
+const { Op } = require("sequelize");
 
-class cardController {
+class CardController {
   async getCards(req, res) {
     let { searchValue } = req.query;
-    fs.readFile("./db.json", "utf-8", (err, jsonString) => {
-      if (err) {
-        res.status(500).json({ message: "Error reading db.json file: " + err });
-      } else {
-        const data = JSON.parse(jsonString);
-        let cards = data.cards;
 
-        if (!searchValue) {
-          return res.send(cards);
-        }
-        if (searchValue) {
-          let filteredCards = cards.filter((card) => {
-            return (
-              card.header.toLowerCase().includes(searchValue.toLowerCase()) ||
-              card.description.toLowerCase().includes(searchValue.toLowerCase())
-            );
-          });
-          return res.send(filteredCards);
-        }
-      }
-    });
+    let cards;
+
+    if (!searchValue) {
+      cards = await Card.findAll();
+    }
+
+    if (searchValue) {
+      cards = await Card.findAll({
+        where: {
+          [Op.or]: [
+            {
+              header: {
+                [Op.iLike]: `%${searchValue}%`,
+              },
+            },
+            {
+              description: {
+                [Op.iLike]: `%${searchValue}%`,
+              },
+            },
+          ],
+        },
+      });
+    }
+
+    return res.send(cards);
   }
 }
 
-module.exports = new cardController();
+module.exports = new CardController();
