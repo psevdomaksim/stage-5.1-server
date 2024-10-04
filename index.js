@@ -9,22 +9,10 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-const whitelist = [
-  "http://localhost:3000",
-  "https://trainee-react-app.vercel.app",
-];
-const corsOptions = {
-  origin: (origin, cb) => {
-    if (whitelist.indexOf(origin) > -1) {
-      cb(null, true);
-    } else {
-      cb(new Error("Forbidden by CORS"));
-    }
-  },
-  credentials: true,
-};
 
-app.use(cors(corsOptions));
+
+app.use(cors({ origin: "https://trainee-react-app.vercel.app", credentials: true }));
+//app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use("/api", router);
 
 //Avoid CORS issue
