@@ -31,7 +31,7 @@ class CardController {
     }
 
     return res.send(cards);
-  }
-}
+  };
+};
 
 module.exports = new CardController();

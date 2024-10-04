@@ -9,8 +9,22 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(cors({ origin: "https://trainee-react-app-git-stage-52-maks-projects-4427f2e3.vercel.app", credentials: true }));
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+const whitelist = [
+  "http://localhost:3000",
+  "https://react-app-brown-pi.vercel.app/",
+];
+const corsOptions = {
+  origin: (origin, cb) => {
+    if (whitelist.indexOf(origin) > -1) {
+      cb(null, true);
+    } else {
+      cb(new Error("Forbidden by CORS"));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use("/api", router);
 
 //Avoid CORS issue
