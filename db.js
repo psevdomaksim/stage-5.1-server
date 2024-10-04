@@ -7,10 +7,9 @@ const { Sequelize } = require("sequelize");
 //   { dialect: "postgres", host: process.env.DB_HOST, port: process.env.DB_PORT }
 // );
 
- module.exports = new Sequelize(
-   process.env.POSTGRES_URL
- );
-
+ module.exports = new Sequelize(process.env.POSTGRES_URL, {
+  dialectModule: require('pg')
+});
 //postgres://postgres:s5lrw33MaDL3ID0@stage5-2.flycast:5432
 
 // const URI = `${process.env.DB_DIALECT}://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`;
