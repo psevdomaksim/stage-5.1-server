@@ -8,7 +8,7 @@ const { Sequelize } = require("sequelize");
 // );
 
  module.exports = new Sequelize(
-   "postgres://default:Cat9u7QTxdzs@ep-wispy-fire-a4ugblsl-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
+   process.env.POSTGRES_URL
  );
 
 //postgres://postgres:s5lrw33MaDL3ID0@stage5-2.flycast:5432
