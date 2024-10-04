@@ -5,11 +5,11 @@ const cookieParser = require("cookie-parser");
 const router = require("./routes/index");
 const sequelize = require("./db");
 
-const PORT = 5000;
-
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+
+app.use(cors({ origin: "https://trainee-react-app-git-stage-52-maks-projects-4427f2e3.vercel.app", credentials: true }));
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use("/api", router);
 
