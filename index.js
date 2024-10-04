@@ -11,8 +11,8 @@ app.use(cookieParser());
 
 
 
-app.use(cors({ origin: "https://trainee-react-app.vercel.app", credentials: true }));
-//app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+//app.use(cors({ origin: "https://trainee-react-app.vercel.app", credentials: true }));
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use("/api", router);
 
 //Avoid CORS issue
