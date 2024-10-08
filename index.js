@@ -1,17 +1,15 @@
 require("dotenv").config();
 const cors = require("cors");
 const express = require("express");
-const cookieParser = require("cookie-parser");
 const router = require("./routes/index");
 const sequelize = require("./db");
 
+
 const app = express();
 app.use(express.json());
-app.use(cookieParser());
 
 
-app.use(cors({ origin: "https://trainee-react-app.vercel.app", credentials: true }));
-//app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: process.env.CORS_URL,  credentials: true,}));
 app.use("/api", router);
 
 //Avoid CORS issue
@@ -29,10 +27,11 @@ app.use("/", (req, res) => {
   res.send("server is running.");
 });
 
+
+
 const start = async () => {
   try {
     await sequelize.authenticate();
-    await sequelize.sync();
     app.listen(process.env.PORT, () =>
       console.log(`server started listening on ${process.env.PORT}`)
     );

@@ -16,15 +16,16 @@ module.exports = function (req, res, next) {
   jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET, (err, user) => {
     if (err) {
       if (err.name === "TokenExpiredError") {
-        const refreshToken = req.cookies.refreshToken;
-        if (!refreshToken) {
+        const {token} = req.body;
+      
+        if (!token) {
           return res
             .status(403)
             .json({ message: "Refresh token not provided" });
         }
 
         jwt.verify(
-          refreshToken,
+          token,
           process.env.JWT_REFRESH_SECRET,
           (err, userFromRefresh) => {
             if (err) {

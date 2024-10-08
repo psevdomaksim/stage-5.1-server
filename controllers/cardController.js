@@ -30,7 +30,7 @@ class CardController {
       });
     }
 
-    return res.send(cards);
+    return res.json({cards});
   };
 };
 
