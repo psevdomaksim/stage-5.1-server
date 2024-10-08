@@ -4,7 +4,7 @@ const router = new Router();
 const authRouter = require("./authRouter");
 const cardRouter = require("./cardRouter");
 
-router.post("/login", authRouter);
-router.get("/card", cardRouter);
+router.use("/auth", authRouter);
+router.use("/card", cardRouter);
 
 module.exports = router;

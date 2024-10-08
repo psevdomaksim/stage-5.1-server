@@ -1,7 +1,8 @@
 const Router = require("express");
 const router = new Router();
-const cardController = require("../controllers/cardController");
+const CardController = require("../controllers/cardController");
+const authMiddleware = require("../middlewares/authMiddleware");
 
-router.get("/card", cardController.getCards);
+router.get("/",authMiddleware, CardController.getCards);
 
 module.exports = router;
